@@ -1,0 +1,31 @@
+<div class="col-md-12">
+    <div class="card card-container">
+        <h3>Inbox</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>To</th>                    
+                    <th>Subject</th>
+                    <th>Body</th>
+                    <th>Attachment</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of mails">
+                    <th>{{ item.uploadedDate | date:'medium'}}</th>
+                    <td>{{ item.recipientEmailID }}</td>
+                    <td>{{ item.subject }}</td>
+                    <td>{{ item.body }}</td>
+                    <td *ngIf="item.attachmentID">
+                        <button type="button" (click)="downloadFile(item.attachmentID)">Download</button>
+                    </td>
+                    <td *ngIf="!item.attachmentID">
+                        <label>Not available</label>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

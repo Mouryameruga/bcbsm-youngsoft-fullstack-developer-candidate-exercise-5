@@ -1,0 +1,105 @@
+<div class="col-md-12">
+    <div class="card card-container">
+        <h3>New Mail</h3>
+      <form
+        *ngIf="!isRequestSuccess"
+        name="form"
+        (ngSubmit)="f.form.valid && onSubmit()"
+        #f="ngForm"
+        novalidate
+      >
+      <div class="form-group">
+        <label for="from">From</label>
+        <input
+          type="email"
+          class="form-control"
+          name="fromEmailID"
+          [(ngModel)]="form.fromEmailID"
+          required
+          #fromEmailID="ngModel"
+          readonly
+          [ngClass]="{ 'is-invalid': f.submitted && fromEmailID.errors }"
+        />
+        <div *ngIf="fromEmailID.errors && f.submitted" class="invalid-feedback">
+          Please enter From Email ID!
+        </div>
+      </div>
+
+        <div class="form-group">
+          <label for="recipientEmailID">To</label>
+          <input
+            type="email"
+            class="form-control"
+            name="recipientEmailID"
+            [(ngModel)]="form.recipientEmailID"
+            required
+            #recipientEmailID="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && recipientEmailID.errors }"
+          />
+          <div *ngIf="recipientEmailID.errors && f.submitted" class="invalid-feedback">
+            Please enter To Email ID!
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input
+            type="text"
+            class="form-control"
+            name="subject"
+            [(ngModel)]="form.subject"
+            required
+            minlength="6"
+            #subject="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && subject.errors }"
+          />
+          <div *ngIf="subject.errors && f.submitted" class="invalid-feedback">
+            <div *ngIf="subject.errors['required']">Subject is mandatory!</div>
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="body">Body</label>
+            <textarea
+              type="textarea"
+              class="form-control"
+              name="body"
+              [(ngModel)]="form.body"
+              required
+              #body="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && body.errors }"
+            ></textarea>
+            <div *ngIf="body.errors && f.submitted" class="invalid-feedback">
+              Body is mandatory!
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="file">Attachment</label>
+            <input
+              type="file"
+              class="form-control"
+              name="file"
+              [(ngModel)]="form.file"
+              #file="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && file.errors }"
+              (change)="uploadFile($event)"
+            />
+          </div>
+          <div class="alert alert-success" *ngIf="isFileUploadSuccess">
+            <label>File uploaded successfully!</label>
+          </div>
+        <div class="form-group">
+          <button class="btn btn-primary btn-block">
+            Send
+          </button>
+        </div>
+        <div class="form-group">
+          <div *ngIf="f.submitted && isRequestFailed" class="alert alert-danger" role="alert">
+            {{ errorMessage }}
+          </div>
+        </div>
+      </form>
+      <div class="alert alert-success" *ngIf="isRequestSuccess">
+        <div><label>Mail sent successfully!</label> <a href="javascript:void(0);" role="button" (click)="reloadPage()">Send another mail</a></div>
+      </div>
+    </div>
+  </div>

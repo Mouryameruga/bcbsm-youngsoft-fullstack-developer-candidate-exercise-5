@@ -1,0 +1,11 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+CLASS:PUBLIC
+DESCRIPTION:Join us on 16 November\, 2023 to fast-track your cloud learning on AWS Cloud concepts\, core AWS services\, and innovation opportunities. \n\nLog in link: https://awsomeday-apj.virtual.awsevents.com/lang=en \n\nView latest agenda: https://aws.amazon.com/events/awsome-day/awsome-day-online/#agenda\n\nQuestions? Email us at aws-apj-marketing@amazon.com\n\n---------------------------------------------------------\nSession Timings\n---------------------------------------------------------\nAustralia - GMT+11 (AEDT) 4:00pm\n\nNew Zealand - GMT+13 (NZDT) 6:00pm\n\nSingapore / Malaysia / Philippines - GMT+8 (SGT/MYT/PHT) 1:00pm\n\nThailand / Vietnam - GMT+7 (ICT) 12:00pm\n\nIndonesia - GMT+7 (WIB) 12:00\n\nPakistan - GMT+5 (PKT) 10:00am\n\nIndia - GMT+5.30 (IST) 10:30am\n\nSri Lanka - GMT+5.30 (SLT) 10:30am\n\nKorea - GMT+9 (KST) 2:00pm\n\nJapan - GMT+9 (JST) 2:00pm\n
+DTSTART:20231116T050000Z
+DTEND:20231116T080000Z
+LOCATION:https://awsomeday-apj.virtual.awsevents.com/lang=en
+SUMMARY;LANGUAGE=en-us:AWSome Day Online Conference
+END:VEVENT
+END:VCALENDAR
